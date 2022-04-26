@@ -1,10 +1,11 @@
 /* iTimer Make By iToKcik */
-/* Credit To arYzal For Helping */
 
 /*
 
 Functions:
 
+    TimerConnect();
+    TimerDisconnect();
     OnTimeUpdate();
     OnPlayerTimeUpdate(playerid);
     TimestampToDate(Timestamp, &year, &month, &day, &hour, &minute, &second, HourGMT, MinuteGMT = 0);
