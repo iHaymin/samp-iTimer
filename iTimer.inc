@@ -30,7 +30,7 @@ Created On : 24/04/2022
 #define SECONDS_MINUTES             60
 //==================================================================================
 //New
-new PlayerTimer[MAX_PLAYERS], CountTimer[3];
+new PlayerTimer[MAX_PLAYERS], GlobalTimer, CountTimer[3];
 //==================================================================================
 //Array
 new MonthTimes[12][4] =
@@ -218,5 +218,24 @@ stock GetElapsedTime(time, to_time, type = CONVERT_TIME_TO_MINUTES)
 			result = -1;
 	}
 	return result;
+}
+
+stock TimerConnect()
+{
+    if(funcidx("OnTimeUpdate") != -1)
+    {
+	GlobalTimer = SetTimer("OnTimeUpdate", (1 * 1000), true);
+    }
+    else
+    {
+	GlobalTimer = -1;
+    }
+    return 1;
+}
+
+stock TimerDisconnect()
+{
+    KillTimer(GlobalTimer);
+    return 1;
 }
 //==================================================================================
